@@ -15,12 +15,9 @@ import { OrbitControls } from 'https://unpkg.com/three@0.162.0/examples/jsm/cont
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-const renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector('#bg'), 
-});
+const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.z = 50; 
-renderer.render(scene, camera); 
+document.querySelector("#three-container").appendChild(renderer.domElement);
 
 
 

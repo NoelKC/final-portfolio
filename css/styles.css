@@ -41,6 +41,14 @@ body {
     line-height: 1.4;
 }
 
+#three-container header::before {
+    /* z-index: ; */
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 h1,
 h2,
 h3 {
@@ -143,14 +151,14 @@ img.slide-item {
 
 /* HOME  */
 .home {
-    background: url(../images/backgrounds/blue-space.jpeg) no-repeat;
+    background: rgb(255, 0, 13); 
     /* placeholder BG  */
     background-size: cover;
     display: flex;
     flex-direction: column;
 }
 
-.home .head-display {
+.home header {
     /* header image  */
     background: url(../images/backgrounds/red-bubbles.JPEG) center;
     background-size: cover;
@@ -160,7 +168,7 @@ img.slide-item {
     text-align: center;
 }
 
-.home header {
+.home nav {
     background: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
 }
@@ -235,11 +243,15 @@ h1.content-bg {
 
 @media screen and (max-width:650px) {
     .home .content-wrapper {
-        padding: 20px;
+        padding: 15px;
     }
 
     .content-bg {
         padding: 20px;
+    }
+
+    .home nav {
+        height: 150px;
     }
 
     .home header {
