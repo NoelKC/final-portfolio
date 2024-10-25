@@ -22,7 +22,7 @@ document.querySelector("#three-container").appendChild(renderer.domElement);
 
 
 // ~~~~~~~~~~~~~~~~ Initiate add-ons ~~~~~~~~~~~~~~~~
-const controls = new OrbitControls(camera, renderer.domElement);
+// const controls = new OrbitControls(camera, renderer.domElement);
 // const loader = new GLTFLoader(); // to load 3d models
 
 
