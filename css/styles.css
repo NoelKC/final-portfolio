@@ -47,10 +47,11 @@ body {
 
 #three-container {
     z-index: -1;
-    /* content: ""; */
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 h1,
@@ -114,11 +115,11 @@ a:hover {
     border-radius: 4px;
 }
 
-/* slide-items*/
+/* slide-items*/ /* NEED TO CHANGE -> this is what is causing everything not to fill the screen*/
 
 .slide-item {
     transition: opacity 1.5s, transform 1.5s;
-    /*margin: 200px 0; /* NEED TO CHANGE -> this is what is causing everything not to fill the screen*/
+    margin: 200px 0; 
     opacity: 0;
     text-align: center;
     position: relative;
@@ -139,24 +140,20 @@ a:hover {
     transform: translateX(0);
 }
 
-img.slide-item {
-    display: block;
-    margin: auto;
-    width: 500px;
+.slide-item img{
+    width: 65%;
     height: auto;
-    margin-bottom: 20px;
 }
 
 /* responsive img story item  */
 @media screen and (max-width:650px) {
     .slide-item {
-        margin: 100px;
+        padding: 20px;
     }
 
-    img.slide-item {
+    .slide-item img{
+        width: 100%;
         height: auto;
-        width: 75%;
-        margin-bottom: 10px;
     }
 }
 
@@ -254,6 +251,14 @@ h1.content-bg {
     text-align: center;
 }
 
+.content-bg img { /* isn't centering right now for some reason  */
+    display: block;
+    align-items: center;
+    margin: auto;
+    max-width: 50%;
+    padding: 15px;
+}
+
 @media screen and (max-width:650px) {
     .home .content-wrapper {
         padding: 15px;
@@ -261,6 +266,11 @@ h1.content-bg {
 
     .content-bg {
         padding: 20px;
+    }
+
+    .content-bg img {
+        max-width: 80%;
+    
     }
 
     .home nav {
