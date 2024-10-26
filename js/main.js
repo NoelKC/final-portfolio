@@ -7,10 +7,10 @@ import * as THREE from 'three';
 
 // Import add-ons
 import { OrbitControls } from 'https://unpkg.com/three@0.162.0/examples/jsm/controls/OrbitControls.js';
-// import { GLTFLoader } from 'https://unpkg.com/three@0.162.0/examples/jsm/loaders/GLTFLoader.js'; // to load 3d models
+import { GLTFLoader } from 'https://unpkg.com/three@0.162.0/examples/jsm/loaders/GLTFLoader.js'; // to load 3d models
 
 // ~~~~~~~~~~~~~~~~ Declare Global Variables~~~~~~~~~~~~~~~~
-let scene, camera, renderer, cube, sun, pikminStand, pikminWalk;
+let scene, camera, renderer, cube, cone, pikmin;
 let sceneContainer = document.querySelector("#three-container");
 let mixer, action;
 
@@ -19,7 +19,11 @@ function init() {
     // ~~~~~~Set up scene, camera, + renderer ~~~~~~
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x3295a8);
+    scene.background = new THREE.Color(0x01032e);
+
+    const directLight = new THREE.DirectionalLight(0xffffff, 5);
+    directLight.position.set(1, 1, 5);
+    scene.add(directLight);
 
     camera = new THREE.PerspectiveCamera(75, sceneContainer.clientWidth / sceneContainer.clientHeight, 0.1, 1000);
 
@@ -31,19 +35,40 @@ function init() {
     // ~~~~~~~~~~~~~~~~ Initiate add-ons ~~~~~~~~~~~~~~~~
 
 
-    // →→→→→→ Follow next steps in tutorial: // https://threejs.org/docs/#manual/en/introduction/Creating-a-scene
-    //skip step 1 
+    //~~~~~~ Create Pikmin ~~~~~~
+    const loader = new GLTFLoader(); // to load 3d models
 
-    //step 2 
-    const geometry = new THREE.BoxGeometry(2, 2, 2); const material = new THREE.MeshBasicMaterial({ color: 0x66D4f0 }); cube = new THREE.Mesh(geometry, material); scene.add(cube); camera.position.z = 5;
+    loader.load('assets/blender/my-pik-red-stand-test.gltf', function (gltf) {
+        pikmin = gltf.scene;
+        scene.add(pikmin);
+        pikmin.scale.set(.1, .1, .1);
+        pikmin.position.y = 2;
+        pikmin.position.x = 10;
+        pikmin.position.z = -10;
+    });
 
-    //step 3
-    function animate() { renderer.render(scene, camera); } renderer.setAnimationLoop(animate);
 
-    //step 4 - FINAL STEP 
-    cube.rotation.x += 0.01; cube.rotation.y += 0.01;
 
-    //Now you got a cube! :D 
+    // ~~~~~~ Create Cone Geometry ~~~~~~
+    const coneGeometry = new THREE.ConeGeometry(5, 10, 8);
+    const coneTexture = new THREE.TextureLoader().load('textures/blue-space.jpeg'); //add textures to cube 
+    const coneMaterial = new THREE.MeshBasicMaterial({ map: coneTexture }); //variable of cube when gone 
+    // texture.minFilter = THREE.LinearFilter; // makes image sharper but aliased
+
+    cone = new THREE.Mesh(coneGeometry, coneMaterial);
+    scene.add(cone);
+    cone.position.y = 4;
+    cone.position.z = -10;
+
+    // ~~~~~~ Create Box Geometry ~~~~~~
+    const cubeGeometry = new THREE.BoxGeometry(2, 2, 2);
+    const cubeTexture = new THREE.TextureLoader().load('textures/crunchy-dog-480.jpeg'); //add textures to cube 
+    const cubeMaterial = new THREE.MeshBasicMaterial({ map: cubeTexture }); //variable of cube when gone 
+
+    cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+    scene.add(cube);
+    cube.position.x = -5;
+    cube.position.z = -5;
 }
 
 // ~~~~~~~~~~~~~~~~ Animation Loop ~~~~~~~~~~~~~~~~
@@ -52,16 +77,22 @@ function init() {
 function animate() {
     requestAnimationFrame(animate); // start loop by with frame update
 
-    // →→→→→→ add your animation here ↓↓↓↓
+    // →→→→→→ camera animation here ↓↓↓↓
+    let scrollY = window.scrollY;
+    let percentScrolled = window.scrollY / document.body.scrollHeight * 100;
+    camera.position.y = scrollY * .001;
 
-    // camera.position.z += .03;
-    cone.rotation.x += 0.007;
-    cone.rotation.y += 0.007;
-    // camera.position.z += .03;
+
+    // →→→→→→ pikmin animation here ↓↓↓↓
+    if (pikmin) {
+        pikmin.rotation.y += 0.007;
+    }
+    // →→→→→→ cone animation here ↓↓↓↓
+    cone.rotation.y -= 0.05;
+
+    // →→→→→→ cube animation here ↓↓↓↓
     cube.rotation.x -= 0.007;
     cube.rotation.y -= 0.007;
-
-
 
 
     // always end animation loop with renderer
