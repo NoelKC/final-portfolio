@@ -1,5 +1,6 @@
 
 
+//PROF TIP TO FIX THE PROBLEM - to limit when the slide in works so it doens't turn on with phones so I can keep the resomiveness (use max-width)
 
 //ensure that our js only after the HTML content is loaded 
 document.addEventListener("DOMContentLoaded", function() {
