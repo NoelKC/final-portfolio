@@ -31,7 +31,8 @@
   <!-- //  INTRO  // -->
   <nav>
     <!-- Start content edits below this line. -->
-    <ul class="content-wrapper head-btn">
+    <ul class="sidebar">
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
       <li>
         <a href="#" target="_blank"> HOME</a>
       </li>
@@ -42,8 +43,31 @@
         <a href="#" target="_blank"> PORTFOLIO</a>
       </li>
     </ul>
+    <ul>
+      <li class="hideOnMobile">
+        <a href="#" target="_blank"> HOME</a>
+      </li>
+      <li class="hideOnMobile">
+        <a href="#" target="_blank"> ABOUT</a>
+      </li>
+      <li class="hideOnMobile">
+        <a href="#" target="_blank"> PORTFOLIO</a>
+      </li>
+      <li class="hideOnLaptop" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+    </ul>
     <!-- End content edits here. -->
   </nav>
+  <script>
+    function showSidebar(){
+        const sidebar = document.querySelector('.sidebar') 
+        sidebar.style.display = 'flex'; 
+    }
+    function hideSidebar(){
+        const sidebar = document.querySelector('.sidebar') 
+        sidebar.style.display = 'none'; 
+    }
+</script>
+
   <header>
     <h1 class="content-bg">WELCOME</h1>
   </header>  
