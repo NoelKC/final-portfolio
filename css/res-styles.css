@@ -35,7 +35,7 @@ body {
     /*setting the default to 10px */
 }
 
-body, nav {
+body {
     background: rgb(51 92 103);
     font-family: "Audiowide", sans-serif;
     font-weight: 400;
@@ -115,12 +115,11 @@ a:hover {
     border-radius: 4px;
 }
 
-/* slide-items*/
-/* NEED TO CHANGE -> this is what is causing everything not to fill the screen*/
+/* slide-items*/ /* NEED TO CHANGE -> this is what is causing everything not to fill the screen*/
 
 .slide-item {
     transition: opacity 1.5s, transform 1.5s;
-    margin: 200px 0;
+    margin: 200px 0; 
     opacity: 0;
     text-align: center;
     position: relative;
@@ -141,7 +140,7 @@ a:hover {
     transform: translateX(0);
 }
 
-.slide-item img {
+.slide-item img{
     width: 65%;
     height: auto;
 }
@@ -152,7 +151,7 @@ a:hover {
         padding: 20px;
     }
 
-    .slide-item img {
+    .slide-item img{
         width: 100%;
         height: auto;
     }
@@ -165,7 +164,7 @@ a:hover {
     background-size: cover;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 1; 
 }
 
 .home header {
@@ -178,82 +177,38 @@ a:hover {
     text-align: center;
 }
 
-/* Nav Bar */
-nav {
-    background-color: rgb(0, 0, 0);
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+.home nav {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
-nav ul {
-    width: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.head-btn {
+    list-style-type: none;
+    font-size: 1.6em;
+    font-weight: 600;
 }
 
-nav li:last-child {
-    margin-left: auto; 
+.head-btn li {
+    display: inline-block;
+    margin: 15px;
 }
 
-nav li {
-    height: 65px;
+.head-btn a:hover {
+    opacity: 0.8;
 }
 
-nav a {
-    height: 100%;
-    padding: 0 40px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    color: rgb(255, 0, 0);
-}
-
-nav a:hover {
-    background-color: rgba(255, 0, 0, 0.76);
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 250px;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.44);
-    backdrop-filter: blur(10px);
-    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-.sidebar li {
-    padding: 0;
-    width: 100%;
-}
-
-.sidebar a {
-    width: 100%;
-}
-
-
-@media(max-width: 800px) {
-    .hideOnMobile {
-        display: none;
+@media screen and (min-width:860px) {
+    .head-btn {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
     }
 }
 
-@media(min-width: 800px){
-    .hideOnLaptop{
-        display: none;
-    }
-}
-
-@media(max-width: 400px) {
-    .sidebar {
-        width: 100%;
+@media screen and (max-width:859px) {
+    .head-btn {
+        text-align: center;
+        padding: 10px;
     }
 }
 
@@ -261,7 +216,7 @@ nav a:hover {
     margin: 0 auto;
     padding: 30px;
     max-width: 900px;
-    flex: 1;
+    flex: 1; 
 }
 
 .home .content-wrapper {
@@ -296,8 +251,7 @@ h1.content-bg {
     text-align: center;
 }
 
-.content-bg img {
-    /* isn't centering right now for some reason  */
+.content-bg img { /* isn't centering right now for some reason  */
     display: block;
     align-items: center;
     margin: auto;
@@ -316,7 +270,11 @@ h1.content-bg {
 
     .content-bg img {
         max-width: 80%;
+    
+    }
 
+    .home nav {
+        height: 150px;
     }
 
     .home header {
@@ -334,6 +292,125 @@ h1.content-bg {
     padding: 20px;
     text-align: center;
 }
+
+
+/* RESUME */
+.resume header::before {
+    background: url(images/backgrounds/purple-clouds.jpeg) center;
+    background-size: cover;
+    content: "";
+    display: block;
+    height: 375px;
+
+}
+
+.resume .content-wrapper {
+    background: rgb(95, 198, 101);
+}
+
+.resume-section {
+    margin-bottom: 50px;
+}
+
+.resume-section h2 {
+    border-bottom: 2px dashed #e09f3e;
+}
+
+.project-item {
+    margin: 30px 0;
+}
+
+.project-item img {
+    width: 250px;
+}
+
+@media screen and (min-width:860px) {
+    .project-item {
+        display: flow-root;
+    }
+
+    .project-item img {
+        float: left;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (min-width:650px) and (max-width:859px) {
+    .project-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+    }
+
+    .project-item img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .project-item img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.download-link {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 1.6rem;
+}
+
+@media screen and (max-width:1200px) {
+    .download-link {
+        position: absolute;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .resume header::before {
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    h2 {
+        font-size: 2.6rem;
+    }
+}
+
+.work-item {
+    margin: 30px 0;
+
+}
+
+.work-details p {
+    margin: 0;
+}
+
+@media screen and (min-width:860px) {
+    .work-item {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        column-gap: 10px;
+    }
+
+    .work-summary p:first-child {
+        margin-top: 0;
+    }
+}
+
+.education-item {
+    margin: 30px 0;
+}
+
+.education-item p {
+    margin: 0;
+}
+
+
 
 /* FOOTER */
 footer {
