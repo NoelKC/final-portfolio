@@ -53,14 +53,10 @@ h1 {
 }
 
 h2 {
-    font-family: "Nabla", system-ui;
-    font-optical-sizing: auto;
-    font-weight: 400;
+    font-family: "Frijole", system-ui;
+    font-weight: 800;
     font-style: normal;
-    font-variation-settings:
-        "EDPT" 100,
-        "EHLT" 12;
-    font-size: 3.6rem;
+    color: rgb(4, 255, 0);
 }
 
 h3 {
@@ -229,6 +225,16 @@ h1.content-bg {
 .content-bg h2 {
     display: block;
     text-align: center;
+}
+
+.orange-bg.content-bg {
+    background: rgba(110, 43, 2, 0.8);
+    color: greenyellow;
+}
+
+.green-bg.content-bg  {
+    background: rgba(0, 97, 24, 0.8);
+    color: greenyellow;
 }
 
 .content-bg img {
