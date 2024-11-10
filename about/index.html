@@ -11,11 +11,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Audiowide&family=Fuzzy+Bubbles:wght@400;700&family=Kablammo&family=Lobster&family=Nabla&display=swap"
     rel="stylesheet">
-    <!-- linking my other files - css and js  -->
-  <link rel="stylesheet" href="../css/styles.css">
-  <script src="../js/slide-in-story.js"></script>
-   <!-- use an import map to link to the Three.js CDN -->
-   <script type="importmap">
+  <!-- linking my other files - css and js  -->
+  <link rel="stylesheet" href="../css/about-styles.css">
+  <!-- use an import map to link to the Three.js CDN -->
+  <script type="importmap">
     {
       "imports": {
         "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
@@ -24,16 +23,19 @@
     }
   </script>
   <!-- Link to your Javascript file as a type="module", this will execute the file after the HTML is loaded -->
-  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/particle.js"></script>
   <link rel="icon" href="../images/digital-art/ghost-profile.png" />
 </head>
 
-<body class="home">
+<body class="about">
+  <!-- //  particle BG  // -->
+  <canvas id="bg"></canvas>
+
   <!-- //  INTRO  // -->
   <nav>
     <!-- Start content edits below this line. -->
     <ul class="sidebar">
-      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+      <li onclick=hideSidebar()><a href="#"></ahref><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#75FB4C"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
       <li>
         <a href="../index.html"> HOME</a>
       </li>
@@ -54,35 +56,54 @@
       <li class="hideOnMobile">
         <a href="../portfolio/index.html"> PORTFOLIO</a>
       </li>
-      <li class="hideOnLaptop" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+      <li class="hideOnLaptop" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#75FB4C"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
     </ul>
     <!-- End content edits here. -->
   </nav>
   <script>
-    function showSidebar(){
-        const sidebar = document.querySelector('.sidebar') 
-        sidebar.style.display = 'flex'; 
+    function showSidebar() {
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex';
     }
-    function hideSidebar(){
-        const sidebar = document.querySelector('.sidebar') 
-        sidebar.style.display = 'none'; 
+    function hideSidebar() {
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none';
     }
-</script>
+  </script>
 
   <header>
     <h1 class="content-bg">ABOUT</h1>
-  </header>  
+  </header>
   <main>
-    <div class="content-wrapper">
     <!-- //  ABOUT ME  // -->
     <!-- Start about container -->
-    <div class="content-bg">
-      <h2> H E L L O </h2>
-      <img src="../images/digital-art/ghost-profile.png" alt="pixel art of a blue ghost wearing glassing with a tie-dye background">
-      <p> change this theme to be green leaves  </p>
+    <div class="content-wrapper">
+      <div class="content-bg">
+        <h2> H E L L O </h2>
+        <img src="../images/mall_me.jpg" alt="">
+      </div>
     </div>
-  </div>
-   
+    <div class="content-wrapper">
+      <div class="content-bg">
+        <p> I was born in Hollister but was raised in San Jose for the majority of my life. I have always had a
+          connection with art, even from a young age. I would draw on my homework often and was always stuck in my own
+          head. Thankfully my middle and high schools gave opportunities for kids like me to be creative. I took
+          beginner and advanced art classes in middle school along with an after-school comic book club. When I got into
+          high school I sadly could only take a beginner's art class. However, my high school gave me the opportunity to
+          go to Silicon Valley Career Technical Education (SVCTE or formally known as CCOC). That trade school had an
+          animation program that helped me enter the digital art world. Without that opportunity, I wouldn’t have the
+          experience of that side of art. These classes helped me become a better artist with multiple mediums. I as a
+          current student at San Jose State University have gained a lot of skills and I hope to continue learning and
+          improving as I continue school.
+        </p>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="content-bg">
+        <img src="../images/family.jpg" alt="">
+      </div>
+    </div>
+
   </main>
 
 

@@ -11,21 +11,31 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Audiowide&family=Fuzzy+Bubbles:wght@400;700&family=Kablammo&family=Lobster&family=Nabla&display=swap"
     rel="stylesheet">
+    <!-- use an import map to link to the Three.js CDN -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.162.0/examples/jsm/"
+      }
+    }
+  </script>
   <!-- linking my other files - css and js  -->
   <link rel="stylesheet" href="../css/port-style.css">
   <link rel="icon" href="../images/digital-art/ghost-profile.png" />
-  <script src="../js/image-slides.js" defer></script>
+  <script type="module" src="../js/particle.js"></script>
+  <script src="../js/image-slides.js"></script>
 </head>
 
 <body class="port">
+  <!-- //  particle BG  // -->
+  <canvas id="bg"></canvas>
+
   <!-- //  INTRO  // -->
   <nav>
     <!-- Start content  -->
     <ul class="sidebar">
-      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
-            viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
-            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-          </svg></a></li>
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
       <li>
         <a href="../index.html"> HOME</a>
       </li>
@@ -80,31 +90,28 @@
     <div class="content-wrapper">
       <div class="content-bg">
         <h3> Paint Program </h3>
-        <div class="slideshow-container">
-          <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div> <br>
-            <img src="../images/code-images/paint-program-example.png"> <br>
-            <div class="text">Paint Program Example</div>
-          </div>
-          <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div><br>
-            <img src="../images/code-images/1-paint-program.png"><br>
-            <div class="text">Paint Program Diagram 1</div>
-          </div>
-          <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div><br>
-            <img src="../images/code-images/2-paint-program.png"><br>
-            <div class="text">Paint Program Diagram 1</div>
-          </div>
-          <a class="prev" onclick="plusSlides(-1)">❮</a>
-          <a class="next" onclick="plusSlides(1)">❯</a>
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev"><svg xmlns="http://www.w3.org/2000/svg"
+              height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+              <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+            </svg></button>
+          <button class="carousel-button next" data-carousel-button="next"><svg xmlns="http://www.w3.org/2000/svg"
+              height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+              <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+            </svg></button>
+          <ul data-slides>
+            <li class="slide" data-active>
+              <img src="../images/code-images/paint-program-example.png" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/code-images/1-paint-program.png" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/code-images/2-paint-program.png" alt="">
+            </li>
+          </ul>
         </div>
         <br>
-        <div class="dot-c">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
         <p> Sep 13, 2023</p>
         <p> This is a simple paint program that I made. I was mainly experimenting with lines, shapes, colors, opacity,
           and photos. It took a lot of trial and error but I finally got them all to work. A lot of them are really
@@ -117,6 +124,7 @@
       <div class="content-bg">
         <h3> Cloudy & Rainy Day </h3>
         <img src="../images/code-images/rain-clouds-ex.jpg" alt="rain particles and sine wave clouds made with js">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/maVHc4mS09k?si=lOmFjSdbWT-uF0F0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>Oct 16, 2023</p>
         <p> In this piece I combined two algorithms to make a coding remix. The original code comes from p5.js and they
           are called
@@ -143,82 +151,320 @@
       </div>
     </div>
 
-<!-- //  DIGITAL ART  // -->
+    <!-- //  3D Models  // -->
     <!-- title -->
-    <div class="content-wrapper" id="dig-art">
+    <div class="content-wrapper" id="3d">
       <div class="content-bg">
-        <h2> DIGITAL ART </h2>
+        <h2> 3D MODELS </h2>
       </div>
     </div>
-    <!-- Glitch Art -->
+    <!-- Lava Bug -->
     <div class="content-wrapper">
       <div class="content-bg">
-        <h3> Glitch Art </h3>
-        <div class="slideshow-container">
-          <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div> <br>
-            <img src="../images/code-images/paint-program-example.png"> <br>
-            <div class="text">Paint Program Example</div>
-          </div>
-          <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div><br>
-            <img src="../images/code-images/1-paint-program.png"><br>
-            <div class="text">Paint Program Diagram 1</div>
-          </div>
-          <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div><br>
-            <img src="../images/code-images/2-paint-program.png"><br>
-            <div class="text">Paint Program Diagram 1</div>
-          </div>
-          <a class="prev" onclick="plusSlides(-1)">❮</a>
-          <a class="next" onclick="plusSlides(1)">❯</a>
+        <h3> Lava Bug </h3>
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev"><svg xmlns="http://www.w3.org/2000/svg"
+              height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+              <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+            </svg></button>
+          <button class="carousel-button next" data-carousel-button="next"><svg xmlns="http://www.w3.org/2000/svg"
+              height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+              <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+            </svg></button>
+          <ul data-slides>
+            <li class="slide" data-active>
+              <img src="../images/digital-art/3d/lava-bug-1.png" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/digital-art/3d/lava-bug-2.png" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/digital-art/3d/lava-bug-3.png" alt="">
+            </li>
+            <li class="slide">
+              <img class="long-img" src="../images/digital-art/3d/lava_bug_front_view.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img class="long-img" src="../images/digital-art/3d/lava_bug_side_view.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/digital-art/3d/lava_bug_top_view.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img class="long-img" src="../images/digital-art/3d/lava_bug_under_quarter_view.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/digital-art/3d/lava_bug_mouth_view.jpg" alt="">
+            </li>
+          </ul>
         </div>
         <br>
-        <div class="dot-c">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-        <p> Feb 2023</p>
-        <p> To make this piece I used Adobe Photoshop and Audacity. I put the images into Photoshop and saved the files as audio so I was able to put them into Audacity. Afterwards, I used multiple audio effects on the audio and then exported them. I then got the image by using Photoshop to convert it back into an image. This was all about experimenting with glitched images and the different effects they can give. Some of the photos are my orignal ones while others are from different places online. </p>
+        <p> Feb 2024</p>
+        <p> Name: Molten Scarab (aka Lava Bug) Species: Invertebrate. Insecta. Scarabaeidae  </p>
+        <p>The aliens have been named Molten Scarbs, and nicknamed Lava Bugs. They are similar to scarabs or beetles of Earth, however their exoskeleton mimics molten rock in order to blend in with their natural environment. The small bugs are about the size of a walnut but feel like you are holding a baseball. They seem to be non-hostile but the public is given little information as NASA and the government work together to research them for any hostile tendencies and diseases. </p>
       </div>
     </div>
+     <!-- Low Poly Island -->
+     <div class="content-wrapper">
+      <div class="content-bg">
+        <h3> Low Poly Island </h3>
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev"><svg xmlns="http://www.w3.org/2000/svg"
+              height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+              <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+            </svg></button>
+          <button class="carousel-button next" data-carousel-button="next"><svg xmlns="http://www.w3.org/2000/svg"
+              height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+              <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+            </svg></button>
+          <ul data-slides>
+            <li class="slide" data-active>
+              <img src="../images/digital-art/3d/td-island-1.png" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/digital-art/3d/td-island-2.png" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/digital-art/3d/td-island-3.png" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/digital-art/3d/td-island-alt-1.png" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/digital-art/3d/td-island-alt-2.png" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/digital-art/3d/td-island-alt-3.png" alt="">
+            </li>
+          </ul>
+        </div>
+        <br>
+        <p> Feb 11, 2024</p>
+        <p> A low poly model based on the show Total Drama Island.</p>
+      </div>
+    </div>
+<!-- ANT FIGHTS -->
+<div class="content-wrapper">
+  <div class="content-bg">
+    <h3> ANT FIGHTS </h3>
+    <iframe width="560" height="315"  src="https://www.youtube.com/embed/3gC2lapgt30?si=bLBTXPTLettfZDW4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <p>May 19, 2024</p>
+    <p> 3D animated project with some live action elements. I also 3D printed a model (that you see at the very end) which was going to lead to an ad to buy an Ant Fight Arenea for yourself. However, I thought it would drag out the video too long so I ended the video differently. </p>
+  </div>
+</div>
 
-
-
+<!-- //  PHOTOGRAPHY & VIDEOS  // -->
+    <!-- title -->
+    <div class="content-wrapper" id="pho-vid">
+      <div class="content-bg">
+        <h2> PHOTOGRAPHY </h2>
+      </div>
+    </div>
+    <!-- trapped Creativity -->
+    <div class="content-wrapper">
+      <div class="content-bg">
+        <h3> Trapped Creativity </h3>
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev"><svg xmlns="http://www.w3.org/2000/svg"
+              height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+              <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+            </svg></button>
+          <button class="carousel-button next" data-carousel-button="next"><svg xmlns="http://www.w3.org/2000/svg"
+              height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+              <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+            </svg></button>
+          <ul data-slides>
+            <li class="slide" data-active>
+              <img src="../images/photo/trapped-creativity/1-trapped-creativity.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/trapped-creativity/2-trapped-creativity.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/trapped-creativity/3-trapped-creativity.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/trapped-creativity/4-trapped-creativity.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/trapped-creativity/5-trapped-creativity.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/trapped-creativity/6-trapped-creativity.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/trapped-creativity/7-trapped-creativity.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/trapped-creativity/8-trapped-creativity.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/trapped-creativity/9-trapped-creativity.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/trapped-creativity/10-trapped-creativity.jpg" alt="">
+            </li>
+          </ul>
+        </div>
+        <br>
+        <p> May 11, 2024</p>
+        <p> My inspiration for this work is the overwhelming creative block that I have been building up. I feel that I have been doing art so much more for school than for myself. Even in these photos you can see the computer has Canvas open. The majority of my creativity has been dedicated to my school projects that I have little to spare in my free time. Ignoring past projects and drawing that I have left incomplete for years. The ghost drawing shown in these photos is one that I have drawn since I was a freshman in high school. Something I constantly draw to represent myself, almost like an artist persona. I used to make comics with it all the time but now I have been putting all my notebooks in storage to make room for school projects. In the first photos you can see I am storing them next to my trash can. So in this piece I wanted to show my childhood creativity trying to be free while I am dedicated to school in the background. But in the end instead of locking that side of myself up I decide to make space for it and myself. To make time for myself and my own personal projects.  </p>
+      </div>
+    </div>
+    <!-- Lola Doggy Days -->
+    <div class="content-wrapper">
+      <div class="content-bg">
+        <h3> Lola's Doggy Days </h3>
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev"><svg xmlns="http://www.w3.org/2000/svg"
+              height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+              <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+            </svg></button>
+          <button class="carousel-button next" data-carousel-button="next"><svg xmlns="http://www.w3.org/2000/svg"
+              height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+              <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+            </svg></button>
+          <ul data-slides>
+            <li class="slide" data-active>
+              <img src="../images/photo/lola-doggy-days/1-lola-doggy-days.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/lola-doggy-days/2-lola-doggy-days.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/lola-doggy-days/3-lola-doggy-days.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/lola-doggy-days/4-lola-doggy-days.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img src="../images/photo/lola-doggy-days/5-lola-doggy-days.jpg" alt="">
+            </li>
+          </ul>
+        </div>
+        <br>
+        <p> Apr 7, 2024</p>
+        <p> A series of photos of my dog, Lola. </p>
+      </div>
+    </div>
+<!-- //  Misc  // -->
+    <!-- title -->
+    <div class="content-wrapper" id="mics">
+      <div class="content-bg">
+        <h2> MICS. </h2>
+      </div>
+    </div>
+    <!-- ALL-Consuming -->
+    <div class="content-wrapper">
+      <div class="content-bg">
+        <h3> ALL-Consuming </h3>
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev"><svg xmlns="http://www.w3.org/2000/svg"
+              height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+              <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+            </svg></button>
+          <button class="carousel-button next" data-carousel-button="next"><svg xmlns="http://www.w3.org/2000/svg"
+              height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+              <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+            </svg></button>
+          <ul data-slides>
+            <li class="slide" data-active>
+              <img class="long-img" src="../images/misc/all-consuming-1.jpg" alt="">
+            </li>
+            <li class="slide">
+              <img class="long-img" src="../images/misc/all-consuming-2.jpg" alt="">
+            </li>
+          </ul>
+        </div>
+        <br>
+        <p> Oct 12, 2023</p>
+        <p> This is a medal of dishonor that I wear. This medal represents my anxiety and how it often makes me hide away from everything. </p>
+      </div>
+    </div>
+<!-- Manufactured Femininity -->
+<div class="content-wrapper">
+  <div class="content-bg">
+    <h3> Manufactured Femininity </h3>
+    <div class="carousel" data-carousel>
+      <button class="carousel-button prev" data-carousel-button="prev"><svg xmlns="http://www.w3.org/2000/svg"
+          height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+          <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+        </svg></button>
+      <button class="carousel-button next" data-carousel-button="next"><svg xmlns="http://www.w3.org/2000/svg"
+          height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+          <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+        </svg></button>
+      <ul data-slides>
+        <li class="slide" data-active>
+          <img class="long-img" src="../images/misc/manu-fem-1.jpg" alt="">
+        </li>
+        <li class="slide">
+          <img class="long-img" src="../images/misc/manu-fem-2.jpg" alt="">
+        </li>
+        <li class="slide">
+          <img class="long-img" src="../images/misc/manu-fem-3.jpg" alt="">
+        </li>
+        <li class="slide">
+          <img class="long-img" src="../images/misc/manu-fem-4.jpg" alt="">
+        </li>
+        <li class="slide">
+          <img class="long-img" src="../images/misc/manu-fem-5.jpg" alt="">
+        </li>
+      </ul>
+    </div>
+    <br>
+    <p> Dec 6, 2023</p>
+    <p> Corsets in the past made it so women can modify themselves into this manufactured mold of what femininity was at the time. They enlarge the butt and breast by making their waist so thin you can wrap your fingers around it. Today these standards pushed onto female bodies are slowly eroding. People are breaking out of these molds and embracing who they are. So in my piece, Manufactured Femininity, I wanted to show this erosion of past molds. I was heavily inspired by old corset ad photos showing women with super thin waists. Specifically, I found the    <a href="https://olddesignshop.com/wp-content/uploads/2012/07/OldDesignShop_WarnersCorset1889.jpg">Warner’s “Rust-Proof” corset</a>
+      . I thought it was ironic that I am making a rusty corset based off of their “Rust-Proof” one. So I used it as a guide while I made my piece.
+    </p>
+  </div>
+</div>
+ <!-- Chachayotes -->
+ <div class="content-wrapper">
+  <div class="content-bg">
+    <h3> Chachayotes </h3>
+    <img src="../images/misc/chachayotes.jpg" alt="">
+    <iframe src="https://www.youtube.com/embed/vRrHWXTGqEs?si=mDVsPdlua6d7wZgt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <p> Apr 19, 2024</p>
+    <p> I made Chachayotes out of ceramic and I used steel wire and leather to attach the pieces together. Chachayotes are traditionally made out of leather with ayoyote seed shells sewed on to them. They are worn by Aztec dancers who will wear these on their legs, arms, and have rattles with similar seed shells. This means a lot to me since my mom is an Aztec dancer. I am Native American but I didn’t grow up with a lot of my culture. So the few things I do have I cherish. Especially since there is an extreme amount of Native American cultural erasure that goes back decades.  </p>
+  </div>
+</div>
+<!-- The Little Things -->
+<div class="content-wrapper">
+  <div class="content-bg">
+    <h3> The Little Things </h3>
+    <div class="carousel" data-carousel>
+      <button class="carousel-button prev" data-carousel-button="prev"><svg xmlns="http://www.w3.org/2000/svg"
+          height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+          <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+        </svg></button>
+      <button class="carousel-button next" data-carousel-button="next"><svg xmlns="http://www.w3.org/2000/svg"
+          height="24px" viewBox="0 -960 960 960" width="24px" fill="#cc00ff">
+          <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+        </svg></button>
+      <ul data-slides>
+        <li class="slide" data-active>
+          <img class="long-img" src="../images/misc/the-little-things-1.jpg" alt="">
+        </li>
+        <li class="slide">
+          <img class="long-img" src="../images/misc/the-little-things-2.jpg" alt="">
+        </li>
+        <li class="slide">
+          <img class="long-img" src="../images/misc/the-little-things-3.jpg" alt="">
+        </li>
+        <li class="slide">
+          <img class="long-img" src="../images/misc/the-little-things-4.jpg" alt="">
+        </li>
+      </ul>
+    </div>
+    <br>
+    <p> Dec 5, 2023</p>
+    <p> Often we forget about the little things in our lives. As someone who gardens I often am amazed by the little vistors I get. I wanted to show my appreciation for them.  </p>
+  </div>
+</div>
 
 
   </main>
-
-  <!-- slideshow scripts -->
-  <!-- <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-    }
-  </script> -->
 
   <!-- //  FOOTER INFO, SOCIAL MEDIA  // -->
   <footer>
