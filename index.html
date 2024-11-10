@@ -9,13 +9,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Fuzzy+Bubbles:wght@400;700&family=Kablammo&family=Lobster&family=Nabla&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Frijole&family=Kablammo&family=Nabla&display=swap"
     rel="stylesheet">
-    <!-- linking my other files - css and js  -->
+  <!-- linking my other files - css and js  -->
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/slide-in-story.js"></script>
-   <!-- use an import map to link to the Three.js CDN -->
-   <script type="importmap">
+  <!-- use an import map to link to the Three.js CDN -->
+  <script type="importmap">
     {
       "imports": {
         "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
@@ -33,7 +33,11 @@
   <nav>
     <!-- Start content edits below this line. -->
     <ul class="sidebar">
-      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+            viewBox="0 -960 960 960" width="24px" fill="#EA3323">
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+          </svg></a></li>
       <li>
         <a href="index.html"> HOME</a>
       </li>
@@ -54,68 +58,78 @@
       <li class="hideOnMobile">
         <a href="portfolio/index.html"> PORTFOLIO</a>
       </li>
-      <li class="hideOnLaptop" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+      <li class="hideOnLaptop" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+            viewBox="0 -960 960 960" width="24px" fill="#EA3323">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+          </svg></a></li>
     </ul>
     <!-- End content edits here. -->
   </nav>
   <script>
-    function showSidebar(){
-        const sidebar = document.querySelector('.sidebar') 
-        sidebar.style.display = 'flex'; 
+    function showSidebar() {
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex';
     }
-    function hideSidebar(){
-        const sidebar = document.querySelector('.sidebar') 
-        sidebar.style.display = 'none'; 
+    function hideSidebar() {
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none';
     }
-</script>
+  </script>
 
   <header>
     <h1 class="content-bg">WELCOME</h1>
-  </header>  
+  </header>
   <main>
     <div class="content-wrapper">
-    <!-- //  ABOUT ME  // -->
-    <!-- Start about container -->
-    <div class="content-bg">
-      <h2> H E L L O </h2>
-      <img src="images/digital-art/ghost-profile.png" alt="pixel art of a blue ghost wearing glassing with a tie-dye background">
-      <p> My name is Noel Curtis. Currently I am a student at SJSU as a Digital Media Art Major. I have dabbled in a couple different mediums and I can’t wait to continue experimenting with more in the future!  </p>
+      <!-- //  ABOUT ME  // -->
+      <!-- Start about container -->
+      <div class="content-bg">
+        <h2> H E L L O </h2>
+        <img src="images/digital-art/ghost-profile.png"
+          alt="pixel art of a blue ghost wearing glassing with a tie-dye background">
+        <p> My name is Noel Curtis. Currently I am a student at SJSU as a Digital Media Art Major. I have dabbled in a
+          couple different mediums and I can’t wait to continue experimenting with more in the future! </p>
+      </div>
     </div>
-  </div>
 
-     <!-- add three.js-->
-    <div id="three-container"> </div> 
+    <!-- add three.js-->
+      <div id="three-container"> </div>
 
-    <div class="content-wrapper"> 
-    <!-- Coding container  -->
-    <div class="content-bg slide-item left">
-      <h2><a href="portfolio/index.html#code"> CODING </a></h2>
-      <img src="images/code-images/paint-program-example.png" alt="picture of my painting code ">
-      <p>Here are coding projects using HTML, CSS, JS (Particle Systems, Sine Waves, Animation, etc.), and Three.js. </p>
-    </div>
-    <!-- end of coding container -->
-    <!-- 3D Models container  -->
-    <div class="content-bg slide-item right">
-      <h2><a href="portfolio/index.html#3d"> 3D MODELS </a></h2>
-      <img src="images/digital-art/3d/lava-bug-1.png" alt="glitch art of my mother in her aztec dancing regalia">
-      <p>3D models I made using blender. </p>
-    </div>
-    <!-- end of 3D Models container -->
-    <!-- Photography container  -->
-    <div class="content-bg slide-item left">
-      <h2><a href="portfolio/index.html#pho-vid"> PHOTOGRAPHY </a></h2>
-      <img src="images/photo/trapped-creativity/2-trapped-creativity.jpg" alt="photo of me grabbing a small drawing of a ghost">
-      <p> Has some of my photography and edits of photos.</p>
-    </div>
-    <!-- end of Photography container -->
-    <!-- Misc. container  -->
-    <div class="content-bg slide-item right">
-      <h2><a href="portfolio/index.html#mics"> MISC. </a></h2>
-      <img src="images/misc/all-consuming-1.jpg" alt="a painting of a moutains near a river">
-      <p>I don’t always work on a computer. Here are any miscellaneous pieces that include some physical paintings, inked pages, sketches, sculptures, etc. </p>
-    </div>
+      <div class="contain-slide">
+    <div class="content-wrapper">
+      <!-- Coding container  -->
+      <div class="content-bg slide-item left">
+        <h2><a href="portfolio/index.html#code"> CODING </a></h2>
+        <img src="images/code-images/paint-program-example.png" alt="picture of my painting code ">
+        <p>Here are coding projects using HTML, CSS, JS (Particle Systems, Sine Waves, Animation, etc.), and Three.js.
+        </p>
+      </div>
+      <!-- end of coding container -->
+      <!-- 3D Models container  -->
+      <div class="content-bg slide-item right">
+        <h2><a href="portfolio/index.html#3d"> 3D MODELS </a></h2>
+        <img src="images/digital-art/3d/lava-bug-1.png" alt="glitch art of my mother in her aztec dancing regalia">
+        <p>3D models I made using blender. </p>
+      </div>
+      <!-- end of 3D Models container -->
+      <!-- Photography container  -->
+      <div class="content-bg slide-item left">
+        <h2><a href="portfolio/index.html#pho-vid"> PHOTOGRAPHY </a></h2>
+        <img src="images/photo/trapped-creativity/2-trapped-creativity.jpg"
+          alt="photo of me grabbing a small drawing of a ghost">
+        <p> Has some of my photography and edits of photos.</p>
+      </div>
+      <!-- end of Photography container -->
+      <!-- Misc. container  -->
+      <div class="content-bg slide-item right">
+        <h2><a href="portfolio/index.html#mics"> MISC. </a></h2>
+        <img src="images/misc/all-consuming-1.jpg" alt="a painting of a moutains near a river">
+        <p>I don’t always work on a computer. Here are any miscellaneous pieces that include some physical paintings,
+          inked pages, sketches, sculptures, etc. </p>
+      </div>
     </div>
     <!-- end of Misc. container -->
+     </div>
   </main>
 
 
