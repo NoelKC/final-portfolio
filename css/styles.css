@@ -1,15 +1,4 @@
-/* color - it said to use spaces instead of commas for rgb ex: rgb( #red #green #blue / alpha%) */
 
-/* COLOR PALETTE 
-all below are from this website: https://venngage-wordpress.s3.amazonaws.com/uploads/2021/07/Deep-Space-Auburn-Indian-Yellow-Fall-Color-Palette.png
-cloudy blue - #335c67 | rgb(51 92 103) 
-pale yellow - #fff3b0 | rgb(255 243 176) 
-dying leaf orange - #e09f3e | rgb(224 159 62) 
-apple - #9e2a2b | rgb(158 42 43) 
-red wood - #540b0e | rgb(84 11 14) 
-
-neon pink - e09 | rgb(238 0 153) is also a great color but doesn't fit the palette 
-*/
 
 
 /* GLOBAL STYLES  */
@@ -43,6 +32,15 @@ body, nav {
     font-size: 1.6em;
     display: flex;
     flex-direction: column;
+}
+
+/* canvas BG */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+    z-index: -1;
 }
 
 #three-container {
