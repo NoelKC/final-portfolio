@@ -1,0 +1,9 @@
+
+
+
+@font-face { font-family: Melody; src: url('CuteMelody.otf'); } 
+.melody { font-family: Melody; font-size: 4.2em; }
+
+
+@font-face { font-family: Mono; src: url('Mominacute-Regular.ttf'); } 
+.mono { font-family: Mono; font-size: 4.2em; }
