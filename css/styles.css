@@ -197,7 +197,7 @@ nav li:last-child {
 }
 
 nav li {
-    height: 65px;
+    height: 70px;
 }
 
 nav a {
@@ -275,13 +275,13 @@ nav a:hover {
 
 .content-bg.slide-item.left {
     /* slides in from the left to the center */
-    background: rgba(220, 51, 51, 0.397);
+    background: rgba(220, 51, 51, 0.8);
     display: inline-block;
 }
 
 .content-bg.slide-item.right {
     /* slides in from the right to the center */
-    background: rgba(255, 255, 255, 0.444);
+    background: rgba(255, 255, 255, 0.8);
     display: inline-block;
 }
 
